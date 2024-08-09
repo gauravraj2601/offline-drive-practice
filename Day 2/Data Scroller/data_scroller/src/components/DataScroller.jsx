@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import InfiniteScroll from "react-infinite-scroll-component";
+const colors = ["yellow", "lightblue", "lightgreen", "lightcoral", "lightpink"]; 
 
-const style = {
-  backgroundColor: "yellow",
-  marginBottom: "10px",
-  marginLeft: "-30px",
-  height: "100px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center"
-};
 
 const DataScroller = () => {
   const [items, setItems] = useState(Array.from({ length: 20 }));
@@ -38,7 +30,18 @@ const DataScroller = () => {
       >
         <ul style={{ width: "200px", margin: "auto", listStyleType: "none" }}>
           {items.map((item, index) => (
-            <li style={style} key={index}>
+            <li 
+            style={{
+              backgroundColor: colors[index % colors.length], // Cycle through colors
+              marginBottom: "10px",
+              marginLeft: "-30px",
+              height: "100px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }} 
+            
+            key={index}>
               {`Item ${index+1}`}
             </li>
           ))}
