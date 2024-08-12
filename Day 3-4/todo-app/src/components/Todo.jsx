@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import  { ThemeContext } from "../Context/ThemeContextProvider";
 
 const Todo = () => {
+    const {dark, toggleTheme }= useContext(ThemeContext);
+
+    console.log(dark)
   const [todos, setTodos] = useState([
     {
       id: "1",
@@ -60,7 +65,10 @@ const Todo = () => {
   };
 
   return (
-    <div>
+    <div style={{backgroundColor:`${dark?"#333":"#fff"}`}} >
+         <button onClick={toggleTheme}>
+        Switch to {dark ? "Light" : "Dark"} Theme
+      </button>
       <form
         style={{ textAlign: "start", margin: "auto", width: "20%" }}
         onSubmit={handleAddTodo}
