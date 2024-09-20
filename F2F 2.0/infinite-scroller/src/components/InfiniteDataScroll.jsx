@@ -17,6 +17,7 @@ const InfiniteDataScroll = () => {
         width: 300,
         margin: "auto",
         height: 500,
+        marginTop:"20px"
        
       }}
     >
